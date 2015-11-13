@@ -1,0 +1,20 @@
+# Dependency repositories
+bower_components
+node_modules
+
+# Runtime turds
+newrelic_agent.log
+npm-debug.log
+
+# The generated copy of the index file.
+src/client/index.html
+
+# Build-generated files
+build
+.tmp
+report
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

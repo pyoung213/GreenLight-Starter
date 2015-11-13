@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Green Light Starter</title>
+        <base href="/">
+
+        <!-- build:css styles/lib.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/app.css -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/.tmp/styles.css">
+        <!-- endinject -->
+        <!-- endbuild -->
+    </head>
+
+    <body ng-cloak ng-app='app'>
+        <div ui-view layout-fill></div>
+
+        <!-- build:js js/lib.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="/bower_components/moment/moment.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/toastr/toastr.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-translate/angular-translate.js"></script>
+        <script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+        <script src="/bower_components/lodash/lodash.js"></script>
+        <script src="/bower_components/restangular/dist/restangular.js"></script>
+        <script src="/bower_components/jwt-decode/build/jwt-decode.js"></script>
+        <script src="/bower_components/angular-aria/angular-aria.js"></script>
+        <script src="/bower_components/angular-material/angular-material.js"></script>
+        <script src="/bower_components/angular-messages/angular-messages.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js js/app.js -->
+        <!-- inject:js -->
+        <script src="/src/web/app/app.module.js"></script>
+        <script src="/src/web/app/api/api.module.js"></script>
+        <script src="/src/web/app/constants/constants.module.js"></script>
+        <script src="/src/web/app/directives/directives.module.js"></script>
+        <script src="/src/web/app/modals/modals.module.js"></script>
+        <script src="/src/web/app/pages/pages.module.js"></script>
+        <script src="/src/web/app/services/services.module.js"></script>
+        <script src="/src/web/app/startup/startup.module.js"></script>
+        <script src="/src/web/app/api/api.service.js"></script>
+        <script src="/src/web/app/api/apiHelper/apiHelper.service.js"></script>
+        <script src="/src/web/app/api/formsApi/formsApi.service.js"></script>
+        <script src="/src/web/app/api/loggerApi/loggerApi.service.js"></script>
+        <script src="/src/web/app/api/usersApi/usersApi.service.js"></script>
+        <script src="/src/web/app/constants/routes.constants.js"></script>
+        <script src="/src/web/app/directives/compareTo/compareTo.directive.js"></script>
+        <script src="/src/web/app/modals/forgotPasswordModal/forgotPasswordModal.js"></script>
+        <script src="/src/web/app/pages/404/404.controller.js"></script>
+        <script src="/src/web/app/pages/404/404.routes.js"></script>
+        <script src="/src/web/app/pages/login/login.controller.js"></script>
+        <script src="/src/web/app/pages/login/login.routes.js"></script>
+        <script src="/src/web/app/pages/main/home/home.controller.js"></script>
+        <script src="/src/web/app/pages/main/home/home.routes.js"></script>
+        <script src="/src/web/app/pages/main/main.controller.js"></script>
+        <script src="/src/web/app/pages/main/main.routes.js"></script>
+        <script src="/src/web/app/pages/signup/signup.controller.js"></script>
+        <script src="/src/web/app/pages/signup/signup.routes.js"></script>
+        <script src="/src/web/app/services/auth/auth.service.js"></script>
+        <script src="/src/web/app/services/auth/authEvents.service.js"></script>
+        <script src="/src/web/app/services/auth/authInterceptor.js"></script>
+        <script src="/src/web/app/services/auth/authState.service.js"></script>
+        <script src="/src/web/app/services/currentUser/currentUser.service.js"></script>
+        <script src="/src/web/app/services/glToast/glToast.service.js"></script>
+        <script src="/src/web/app/services/Logger/Logger.service.js"></script>
+        <script src="/src/web/app/services/urlParser/urlParser.service.js"></script>
+        <script src="/src/web/app/startup/startup.config.js"></script>
+        <script src="/src/web/app/startup/timeout.decorator.js"></script>
+        <!-- endinject -->
+
+        <!-- inject:templates:js -->
+        <!-- endinject -->
+        <!-- endbuild -->
+    </body>
+
+</html>
