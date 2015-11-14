@@ -14,10 +14,10 @@ var $ = require('gulp-load-plugins')({
 /**
  * Build everything
  * This is separate so we can run tests on
- * optimize before handling image or fonts
+ * optimize before handling image
  */
 gulp.task('build', ['clean'], function(done) {
-    runsequence('optimize', 'images', 'fonts', 'languages', function() {
+    runsequence('optimize', 'images', 'languages', function() {
         del.sync(config.temp);
         done();
     });
@@ -49,6 +49,19 @@ gulp.task('inject', ['copy_index'], function(done) {
     runsequence('wiredep', 'styles', 'templatecache', 'inject_css', done);
 });
 
+gulp.task('inject-dev', ['copy_index'], function(done) {
+    log('Wire up css into the html, after files are ready');
+
+    runsequence('wiredep', 'styles', 'fonts', 'inject_fonts', 'inject_css', done);
+});
+
+gulp.task('inject_fonts', function() {
+    return gulp
+        .src(config.index)
+        .pipe(inject(config.temp + config.templateCache.svg.file, 'templates'))
+        .pipe(gulp.dest(config.client));
+});
+
 gulp.task('inject_css', function() {
     return gulp
         .src(config.index)
@@ -60,36 +73,5 @@ gulp.task('copy_index', function() {
     return gulp
         .src(config.index_src)
         .pipe($.rename('index.html'))
-        .pipe(gulp.dest(config.client));
-});
-
-/**
- * Inject all the spec files into the specs.html
- * @return {Stream}
- */
-gulp.task('build-specs', ['templatecache'], function() {
-    log('building the spec runner');
-
-    var wiredep = require('wiredep').stream;
-    var templateCache = [
-        config.temp + config.templateCache.html.file,
-        config.temp + config.templateCache.svg.file
-    ];
-    var options = config.getWiredepDefaultOptions();
-    var specs = config.specs;
-
-    if (args.startServers) {
-        specs = [].concat(specs, config.serverIntegrationSpecs);
-    }
-    options.devDependencies = true;
-
-    return gulp
-        .src(config.specRunner)
-        .pipe(wiredep(options))
-        .pipe(inject(config.js, '', config.jsOrder))
-        .pipe(inject(config.testlibraries, 'testlibraries'))
-        .pipe(inject(config.specHelpers, 'spechelpers'))
-        .pipe(inject(specs, 'specs', ['**/*']))
-        .pipe(inject(templateCache, 'templates'))
         .pipe(gulp.dest(config.client));
 });

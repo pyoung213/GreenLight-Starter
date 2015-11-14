@@ -18,13 +18,6 @@ gulp.task('clean', function() {
 });
 
 /**
- * Remove all fonts from the build folder
- */
-gulp.task('clean-fonts', function() {
-    clean(config.build + 'fonts/**/*.*');
-});
-
-/**
  * Remove all languages from the build folder
  */
 gulp.task('clean-languages', function() {

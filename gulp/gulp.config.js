@@ -44,7 +44,7 @@ var config = {
     languages: path.join(client, 'languages/**/*.*'),
     html: path.join(client, '**/*.html'),
     htmltemplates: path.join(clientApp, '**/*.html'),
-    svgtemplates: path.join(client, 'assets/images/svg/*.svg'),
+    svgtemplates: path.join(client, 'assets/svg_icons/*.svg'),
     images: path.join(client, 'assets/images/**/*.*'),
     index: path.join(client, 'index.html'),
     index_src: path.join(client, 'index.src.html'),
@@ -115,7 +115,7 @@ var config = {
             file: 'svg_templates.js',
             options: {
                 module: 'app.pages',
-                root: 'images/svg/',
+                root: '',
                 standalone: false
             }
         }

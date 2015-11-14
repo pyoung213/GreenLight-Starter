@@ -18,7 +18,7 @@ var $ = require('gulp-load-plugins')({
  * --debug-brk or --debug
  * --nosync
  */
-gulp.task('serve-dev', ['inject'], function() {
+gulp.task('serve-dev', ['inject-dev'], function() {
     var isDev = true;
     serve(isDev);
 });
@@ -39,18 +39,6 @@ gulp.task('serve-build', ['build'], function() {
 
     var isDev = false;
     serve(isDev);
-});
-
-/**
- * Run the spec runner
- * @return {Stream}
- */
-gulp.task('serve-specs', ['build-specs'], function(done) {
-    log('run the spec runner');
-    var isDev = true;
-    var specRunner = true;
-    serve(isDev, specRunner);
-    done();
 });
 
 /**

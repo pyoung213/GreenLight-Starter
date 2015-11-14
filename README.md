@@ -45,6 +45,14 @@ Run the test suite
 
 Alternatively run just one of the test components
 
-    $ gulp testWeb
-    $ gulp testServer
-    $ gulp testEndToEnd
+    $ gulp build
+    $ gulp serve-build
+    $ gulp serve-dev
+    $ gulp e2e
+    $ gulp test
+    $ gulp test-dev
+    $ gulp web:test
+    $ gulp web:test-auto
+    $ gulp server:test
+    $ gulp vet
+    $ gulp pluto

@@ -11,12 +11,16 @@ var $ = require('gulp-load-plugins')({
  * Copy fonts
  * @return {Stream}
  */
-gulp.task('fonts', ['clean-fonts'], function() {
-    log('Copying fonts');
+gulp.task('fonts', function() {
+    log('Creating svg icon templates');
 
-    return gulp
-        .src(config.fonts)
-        .pipe(gulp.dest(config.build + 'fonts'));
+    return gulp.src(config.svgtemplates)
+        .pipe($.svgmin())
+        .pipe($.angularTemplatecache(
+            config.templateCache.svg.file,
+            config.templateCache.svg.options
+        ))
+        .pipe(gulp.dest(config.temp));
 });
 
 /**

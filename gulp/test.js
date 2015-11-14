@@ -12,25 +12,25 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('test', ['vet'], function(done) {
     process.env.NODE_ENV = 'test';
-    runsequence('testServer', 'testWeb', 'testEndToEnd', done);
+    runsequence('server:test', 'web:test', 'e2e', done);
 });
 
 gulp.task('test-dev', ['vet', 'inject'], function(done) {
     process.env.NODE_ENV = 'test';
     process.env.SERVE_FROM_SRC = 'true';
 
-    runsequence('testServer', 'testWeb', 'testEndToEnd', done);
+    runsequence('server:test', 'web:test', 'e2e', done);
 });
 
 /**
  * Run specs once and exit
  * @return {Stream}
  */
-gulp.task('testWeb', function(done) {
+gulp.task('web:test', function(done) {
     startTests(true /*singleRun*/ , done);
 });
 
-gulp.task('testServer', function() {
+gulp.task('server:test', function() {
     var options = {
         require: path.join(config.server, 'mocha.conf.js'),
         timeout: 3600000,
@@ -43,7 +43,7 @@ gulp.task('testServer', function() {
         .pipe($.spawnMocha(options));
 });
 
-gulp.task('testEndToEnd', function(done) {
+gulp.task('e2e', function(done) {
     var options = {
         configFile: path.join(config.root, "e2e/protractor.conf.js")
     };
@@ -64,7 +64,7 @@ gulp.task('testEndToEnd', function(done) {
  * Run specs and wait.
  * Watch for file changes and re-run tests on each change
  */
-gulp.task('autotest', function(done) {
+gulp.task('web:test-auto', function(done) {
     startTests(false /*singleRun*/ , done);
 });
 
