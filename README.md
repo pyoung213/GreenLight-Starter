@@ -52,7 +52,6 @@ High level structure of the app.
 			/app
                 /api
                 /components
-                /constants
                 /core
                 /decorators
                 /modals
@@ -103,12 +102,12 @@ All api services go here.  All services should be basic Restangular calls with n
 #### components
 Components are directives that have an html template associated with it.  Every component will have 4 files inside.
 
-/components
-    /myComponent
-        myComponent.directive.js
-        myComponent.directive.spec.js
-        myComponent.html
-        myComponent.scss
+    /components
+        /myComponent
+            myComponent.directive.js
+            myComponent.directive.spec.js
+            myComponent.html
+            myComponent.scss
 
 #### core
 Core folder contains services that are shared throughout the entire application.  Currently this is shared between startup and web but could be expanded to an admin app.
@@ -122,9 +121,9 @@ Modals are any popup modal in the app.
 #### pages
 Pages contains the views of the app. Pages are nested depending on their ui-router state.  For example if you wanted a page that contained the main header you would structure like so:
 
-/pages
-    /main
-        /myExampleView
+    /pages
+        /main
+            /myExampleView
 
 #### services
 Services contain all business logic between the controllers and the api.  This is usually where error logging is implemented.
