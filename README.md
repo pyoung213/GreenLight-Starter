@@ -6,15 +6,15 @@ Create an Angular Material app starter.
 ## Running greenLight-starter
 
 ### Get the repo
-$ git clone https://github.com/pyoung213/greenLight-starter
-$ cd greenLight-starter
+  - $ git clone https://github.com/pyoung213/greenLight-starter
+  - $ cd greenLight-starter
 
 ###Install dependencies
 
-$ npm install -g gulp karma-cli protractor
-$ npm install
-$ brew install mongodb
-$ ./node_modules/.bin/webdriver-manager update
+  - $ npm install -g gulp karma-cli protractor
+  - $ npm install
+  - $ brew install mongodb
+  - $ ./node_modules/.bin/webdriver-manager update
 
 ### Linting
  - Run code analysis using `gulp vet`. This runs jshint, jscs.
@@ -65,7 +65,7 @@ High level structure of the app.
                 /svg_icons
             /languages
 
-### app
+### app Module
 The app has 3 feature modules.
 
 ```
@@ -94,6 +94,43 @@ Core modules are reusable blocks of code that can be used across projects simply
 
 #### web Modules
 Web modules are components and services that are used for the web client.
+
+### Web Folder Structure
+
+#### api
+All api services go here.  All services should be basic Restangular calls with no logic.  Abstracting this layer makes it easier to mock out these calls in the services.
+
+#### components
+Components are directives that have an html template associated with it.  Every component will have 4 files inside.
+
+/components
+    /myComponent
+        myComponent.directive.js
+        myComponent.directive.spec.js
+        myComponent.html
+        myComponent.scss
+
+#### core
+Core folder contains services that are shared throughout the entire application.  Currently this is shared between startup and web but could be expanded to an admin app.
+
+#### decorators
+Decorators are directives that do not have an html template associated with it.  They are primarily used for enhancing the html.
+
+#### modals
+Modals are any popup modal in the app.
+
+#### pages
+Pages contains the views of the app. Pages are nested depending on their ui-router state.  For example if you wanted a page that contained the main header you would structure like so:
+
+/pages
+    /main
+        /myExampleView
+
+#### services
+Services contain all business logic between the controllers and the api.  This is usually where error logging is implemented.
+
+#### startup
+Startup contains the config and run blocks for the Angular app.
 
 ## License
 
