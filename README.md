@@ -62,6 +62,7 @@ High level structure of the app.
                 /images
                 /styles
                 /svg_icons
+            /config
             /languages
 
 ### app Module
