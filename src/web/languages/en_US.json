@@ -13,6 +13,21 @@
         "ERROR_UNKNOWN": "Oops! Something went wrong! Please try again later.",
         "SIGN_UP_BUTTON": "Sign Up"
     },
+    "FORGOT_PASSWORD": {
+        "TITLE": "Forgot Password",
+        "INSTRUCTIONS": "Enter your email address, and we will send you an email with a link that will allow you to reset your password.",
+        "EMAIL_LABEL": "Email",
+        "EMAIL_PLACEHOLDER": "johnsmith@gmail.com",
+        "NO_ACCOUNT": "An account with that email address could not be found.",
+        "UNKNOWN_ERROR": "An unexpected error occurred. Please contact support if this happens again."
+    },
+    "MODAL": {
+        "BUTTONS": {
+            "OK": "OK",
+            "CANCEL": "Cancel",
+            "DELETE": "Delete"
+        }
+    },
     "SIGNUP": {
         "SIGNUP_BUTTON": "Start my 30 day free trial",
         "LOGIN_BUTTON": "Login",

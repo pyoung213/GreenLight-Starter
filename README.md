@@ -1,58 +1,100 @@
-Green Light Starter
+Green Light Starter (WIP)
 ========
 
-Technologies Used
+Create an Angular Material app starter.
 
-* Angular.js
-* Angular Material
-* ui-router
-* gulp for building css/js using [the concat method](https://medium.com/@dickeyxxx/best-practices-for-building-angular-js-apps-266c1a4a6917)
-* minified assets with aggressive cache-compatible cdn filenames (rev)
-* uses angular templatecache to preload templates
-* bower for external css/js assets
-* eslint for linting JS style
-* Sass for writing CSS
-* static asset node server w/ gzip
-* mocha/chai for testing
-* karma unit testing w/ PhantomJS
-* Protractor end-to-end testing with Firefox and Chrome
+## Running greenLight-starter
 
-Running Locally
-===============
+### Get the repo
+$ git clone https://github.com/pyoung213/greenLight-starter
+$ cd greenLight-starter
 
-Get the repo
+###Install dependencies
 
-    $ git clone https://github.com/pyoung213/greenLight-starter
-    $ cd greenLight-starter
+$ npm install -g gulp karma-cli protractor
+$ npm install
+$ brew install mongodb
+$ ./node_modules/.bin/webdriver-manager update
 
-Install dependencies
+### Linting
+ - Run code analysis using `gulp vet`. This runs jshint, jscs.
 
-    $ npm install -g gulp karma-cli protractor
-    $ npm install
-    $ brew install mongodb
-    $ ./node_modules/.bin/webdriver-manager update
+### Tests
+ - Run all tests using `gulp test` (via karma, mocha, sinon).
 
-Get AWS Credentials
+### e2e
+  - Run e2e tests using `gulp e2e`
+  - Build first before running e2e `gulp e2e-build`
 
-    Get a credentials file.
-    Once you have the file, place it in ~/.aws/
-    Make sure the file is named "credentials".  No extension.
-    Full path should be ~/.aws/credentials
+### web unit tests
+  - Run web unit tests using `gulp web:test`
+  - Run web unit tests auto restart using `gulp web:test-auto`
 
-Run the test suite
+### Running in dev mode
+ - Run the project with `gulp serve-dev`
 
-    $ npm test
+ - opens it in a browser and updates the browser with any files changes.
 
-Alternatively run just one of the test components
+### Building the project
+ - Build the optimized project using `gulp build`
+ - This create the optimized code for production and puts it in the build folder
 
-    $ gulp build
-    $ gulp serve-build
-    $ gulp serve-dev
-    $ gulp e2e
-    $ gulp test
-    $ gulp test-dev
-    $ gulp web:test
-    $ gulp web:test-auto
-    $ gulp server:test
-    $ gulp vet
-    $ gulp pluto
+### Running the optimized code
+ - Run the optimize project from the build folder with `gulp serve-build`
+
+## Structure
+High level structure of the app.
+
+	/src
+        /mobile
+        /server
+		/web
+			/app
+                /api
+                /components
+                /constants
+                /core
+                /decorators
+                /modals
+                /pages
+                /services
+                /startup
+            /assets
+                /images
+                /styles
+                /svg_icons
+            /languages
+
+### app
+The app has 3 feature modules.
+
+```
+app --> [
+        app.startup --> [
+            'app.core'
+        ],
+        app.core --> [
+            'ui.router',
+            'pascalprecht.translate',
+            'ngMaterial',
+            'ngMessages',
+            '*Any 3rd party modules go here*'
+        ]
+        app.web --> [
+            'app.core'
+        ]
+    ]
+```
+
+#### startup Module
+Startup modules are used in the config and run of the app.  These are separated out for tests so that you don't have to mock out translate and other services every time.
+
+#### core Modules
+Core modules are reusable blocks of code that can be used across projects simply by including them as dependencies.
+
+#### web Modules
+Web modules are components and services that are used for the web client.
+
+## License
+
+MIT

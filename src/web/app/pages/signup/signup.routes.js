@@ -1,5 +1,5 @@
 angular
-    .module('app.pages')
+    .module('app.web')
     .config(function($stateProvider, routes) {
         $stateProvider
             .state(routes.SIGN_UP, {

@@ -1,5 +1,5 @@
 angular
-    .module('app.services')
+    .module('app.web')
     .service('glToast', glToast);
 
 function glToast($mdToast, $translate) {

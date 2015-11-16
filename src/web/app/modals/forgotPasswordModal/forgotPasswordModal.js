@@ -1,5 +1,5 @@
 angular
-    .module('app.modals')
+    .module('app.web')
     .service('ForgotPasswordModal', ForgotPasswordModal)
     .controller('ForgotPasswordModalController', ForgotPasswordModalController);
 

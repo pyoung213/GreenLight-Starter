@@ -1,9 +1,7 @@
 describe('home', function() {
     describe('home.ctrl', function() {
         beforeEach(function() {
-            module('ui.router');
-            module('app.constants');
-            module('app.pages');
+            module('app.web');
         });
 
         var $scope;

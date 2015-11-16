@@ -1,5 +1,5 @@
 angular
-    .module('app.api')
+    .module('app.web')
     .service('UsersApi', UsersApi);
 
 function UsersApi(ApiHelper) {

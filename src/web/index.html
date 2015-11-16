@@ -28,7 +28,6 @@
 
         <!-- build:css styles/lib.css -->
         <!-- bower:css -->
-        <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
         <!-- endbower -->
         <!-- endbuild -->
@@ -49,8 +48,6 @@
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/moment/moment.js"></script>
         <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="/bower_components/jquery/dist/jquery.js"></script>
-        <script src="/bower_components/toastr/toastr.js"></script>
         <script src="/bower_components/angular-animate/angular-animate.js"></script>
         <script src="/bower_components/angular-translate/angular-translate.js"></script>
         <script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
@@ -66,20 +63,23 @@
         <!-- build:js js/app.js -->
         <!-- inject:js -->
         <script src="/src/web/app/app.module.js"></script>
-        <script src="/src/web/app/api/api.module.js"></script>
-        <script src="/src/web/app/constants/constants.module.js"></script>
-        <script src="/src/web/app/directives/directives.module.js"></script>
-        <script src="/src/web/app/modals/modals.module.js"></script>
-        <script src="/src/web/app/pages/pages.module.js"></script>
-        <script src="/src/web/app/services/services.module.js"></script>
+        <script src="/src/web/app/core/core.module.js"></script>
         <script src="/src/web/app/startup/startup.module.js"></script>
-        <script src="/src/web/app/api/api.service.js"></script>
+        <script src="/src/web/app/web.module.js"></script>
         <script src="/src/web/app/api/apiHelper/apiHelper.service.js"></script>
-        <script src="/src/web/app/api/formsApi/formsApi.service.js"></script>
-        <script src="/src/web/app/api/loggerApi/loggerApi.service.js"></script>
         <script src="/src/web/app/api/usersApi/usersApi.service.js"></script>
-        <script src="/src/web/app/constants/routes.constants.js"></script>
-        <script src="/src/web/app/directives/compareTo/compareTo.directive.js"></script>
+        <script src="/src/web/app/core/api/api.service.js"></script>
+        <script src="/src/web/app/core/auth/auth.service.js"></script>
+        <script src="/src/web/app/core/auth/authEvents.service.js"></script>
+        <script src="/src/web/app/core/auth/authInterceptor.js"></script>
+        <script src="/src/web/app/core/auth/authState.service.js"></script>
+        <script src="/src/web/app/core/currentUser/currentUser.service.js"></script>
+        <script src="/src/web/app/core/Logger/Logger.service.js"></script>
+        <script src="/src/web/app/core/Logger/loggerApi.service.js"></script>
+        <script src="/src/web/app/core/routeConstants/routes.constants.js"></script>
+        <script src="/src/web/app/core/timeout/timeout.decorator.js"></script>
+        <script src="/src/web/app/core/urlParser/urlParser.service.js"></script>
+        <script src="/src/web/app/decorators/compareTo/compareTo.directive.js"></script>
         <script src="/src/web/app/modals/forgotPasswordModal/forgotPasswordModal.js"></script>
         <script src="/src/web/app/pages/404/404.controller.js"></script>
         <script src="/src/web/app/pages/404/404.routes.js"></script>
@@ -91,16 +91,8 @@
         <script src="/src/web/app/pages/main/main.routes.js"></script>
         <script src="/src/web/app/pages/signup/signup.controller.js"></script>
         <script src="/src/web/app/pages/signup/signup.routes.js"></script>
-        <script src="/src/web/app/services/auth/auth.service.js"></script>
-        <script src="/src/web/app/services/auth/authEvents.service.js"></script>
-        <script src="/src/web/app/services/auth/authInterceptor.js"></script>
-        <script src="/src/web/app/services/auth/authState.service.js"></script>
-        <script src="/src/web/app/services/currentUser/currentUser.service.js"></script>
         <script src="/src/web/app/services/glToast/glToast.service.js"></script>
-        <script src="/src/web/app/services/Logger/Logger.service.js"></script>
-        <script src="/src/web/app/services/urlParser/urlParser.service.js"></script>
         <script src="/src/web/app/startup/startup.config.js"></script>
-        <script src="/src/web/app/startup/timeout.decorator.js"></script>
         <!-- endinject -->
 
         <!-- inject:templates:js -->

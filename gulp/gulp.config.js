@@ -103,7 +103,7 @@ var config = {
         html: {
             file: 'html_templates.js',
             options: {
-                module: 'app.pages',
+                module: 'app',
                 root: 'app/',
                 transformUrl: function(url) {
                     return path.basename(url);
@@ -114,7 +114,7 @@ var config = {
         svg: {
             file: 'svg_templates.js',
             options: {
-                module: 'app.pages',
+                module: 'app',
                 root: '',
                 standalone: false
             }

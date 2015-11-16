@@ -1,5 +1,5 @@
 angular
-    .module('app.pages')
+    .module('app.web')
     .controller('LoginController', LoginController);
 
 function LoginController(Auth, Logger, ForgotPasswordModal, glToast) {

@@ -1,10 +1,6 @@
 angular
     .module('app', [
-        'app.constants',
-        'app.services',
+        'app.core',
         'app.startup',
-        'app.pages',
-        'app.directives',
-        'app.api',
-        'app.modals'
+        'app.web'
     ]);

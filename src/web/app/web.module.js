@@ -1,4 +1,4 @@
 angular
-    .module('app.startup', [
+    .module('app.web', [
         'app.core'
     ]);

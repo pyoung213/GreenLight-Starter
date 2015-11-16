@@ -1,5 +1,5 @@
 angular
-    .module('app.pages')
+    .module('app.web')
     .controller('PageNotFoundController', PageNotFoundController);
 
 function PageNotFoundController() {}

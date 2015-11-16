@@ -1,5 +1,5 @@
 angular
-    .module('app.pages')
+    .module('app.web')
     .controller('SignupController', SignupController);
 
 function SignupController(Auth, Logger, glToast) {

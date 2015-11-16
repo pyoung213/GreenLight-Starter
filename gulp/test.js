@@ -10,7 +10,7 @@ var $ = require('gulp-load-plugins')({
     lazy: true
 });
 
-gulp.task('test', ['vet'], function(done) {
+gulp.task('test', ['vet', 'build'], function(done) {
     process.env.NODE_ENV = 'test';
     runsequence('server:test', 'web:test', 'e2e', done);
 });
@@ -58,6 +58,10 @@ gulp.task('e2e', function(done) {
             throw err;
         })
         .on('end', done);
+});
+
+gulp.task('e2e-build', function(done) {
+    runsequence('build', 'e2e', done);
 });
 
 /**
