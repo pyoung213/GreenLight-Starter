@@ -16,7 +16,7 @@ var $ = require('gulp-load-plugins')({
  * This is separate so we can run tests on
  * optimize before handling image
  */
-gulp.task('build', ['clean'], function(done) {
+gulp.task('build', ['clean', 'config'], function(done) {
     runsequence('optimize', 'images', 'languages', function() {
         del.sync(config.temp);
         done();
@@ -43,13 +43,13 @@ gulp.task('wiredep', function() {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['copy_index'], function(done) {
+gulp.task('inject', ['config', 'copy_index'], function(done) {
     log('Wire up css into the html, after files are ready');
 
     runsequence('wiredep', 'styles', 'templatecache', 'inject_css', done);
 });
 
-gulp.task('inject-dev', ['copy_index'], function(done) {
+gulp.task('inject-dev', ['config', 'copy_index'], function(done) {
     log('Wire up css into the html, after files are ready');
 
     runsequence('wiredep', 'styles', 'fonts', 'inject_fonts', 'inject_css', done);

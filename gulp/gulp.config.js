@@ -40,7 +40,11 @@ var config = {
     css: [
         path.join(temp, '**/*.css')
     ],
-    fonts: path.join(bower.directory, 'font-awesome/fonts/**/*.*'),
+    environmentConfig: {
+        src: client + 'config/environment.config.json',
+        module: 'app.core',
+        dest: clientApp + 'core/'
+    },
     languages: path.join(client, 'languages/**/*.*'),
     html: path.join(client, '**/*.html'),
     htmltemplates: path.join(clientApp, '**/*.html'),
