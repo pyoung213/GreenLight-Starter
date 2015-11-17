@@ -12,7 +12,7 @@ gulp.task('config', function() {
 
     gulp.src(config.environmentConfig.src)
         .pipe($.ngConfig(config.environmentConfig.module, {
-            environment: 'development',
+            environment: process.env.NODE_ENV || 'development',
             createModule: false
         }))
         .pipe(gulp.dest(config.environmentConfig.dest))

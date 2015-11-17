@@ -16,14 +16,7 @@ var $ = require('gulp-load-plugins')({
 gulp.task('templatecache', function() {
     log('Creating an AngularJS $templateCache');
 
-    return eventStream.merge(
-        processHtml(config.htmltemplates),
-        processSVG(config.svgtemplates)
-    );
-});
-
-function processHtml(src) {
-    return gulp.src(src)
+    return gulp.src(config.htmltemplates)
         .pipe($.if(args.verbose, $.bytediff.start()))
         .pipe($.minifyHtml({
             empty: true
@@ -34,19 +27,7 @@ function processHtml(src) {
             config.templateCache.html.options
         ))
         .pipe(gulp.dest(config.temp));
-}
-
-function processSVG(src) {
-    return gulp.src(src)
-        .pipe($.if(args.verbose, $.bytediff.start()))
-        .pipe($.svgmin())
-        .pipe($.if(args.verbose, $.bytediff.stop(bytediffFormatter)))
-        .pipe($.angularTemplatecache(
-            config.templateCache.svg.file,
-            config.templateCache.svg.options
-        ))
-        .pipe(gulp.dest(config.temp));
-}
+});
 
 /**
  * Formatter for bytediff to display the size changes after processing

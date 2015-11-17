@@ -46,16 +46,16 @@ gulp.task('wiredep', function() {
 gulp.task('inject', ['config', 'copy_index'], function(done) {
     log('Wire up css into the html, after files are ready');
 
-    runsequence('wiredep', 'styles', 'templatecache', 'inject_css', done);
+    runsequence('wiredep', 'styles', 'templatecache', 'svg_icons', 'inject_css', done);
 });
 
 gulp.task('inject-dev', ['config', 'copy_index'], function(done) {
     log('Wire up css into the html, after files are ready');
 
-    runsequence('wiredep', 'styles', 'fonts', 'inject_fonts', 'inject_css', done);
+    runsequence('wiredep', 'styles', 'svg_icons', 'inject_svg_icons', 'inject_css', done);
 });
 
-gulp.task('inject_fonts', function() {
+gulp.task('inject_svg_icons', function() {
     return gulp
         .src(config.index)
         .pipe(inject(config.temp + config.templateCache.svg.file, 'templates'))

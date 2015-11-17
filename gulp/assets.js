@@ -8,10 +8,10 @@ var $ = require('gulp-load-plugins')({
 });
 
 /**
- * Copy fonts
+ * Create templates for svg icons
  * @return {Stream}
  */
-gulp.task('fonts', function() {
+gulp.task('svg_icons', function() {
     log('Creating svg icon templates');
 
     return gulp.src(config.svgtemplates)

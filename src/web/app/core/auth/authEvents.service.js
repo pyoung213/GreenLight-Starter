@@ -48,11 +48,6 @@ function AuthEvents(Api, AuthState, CurrentUser, $state, $q, $interval, $rootSco
             event.preventDefault();
             $state.go(routes.LOGIN);
         }
-
-        if (toState.name !== routes.UNVERIFIED && !CurrentUser.verified) {
-            event.preventDefault();
-            $state.go(routes.UNVERIFIED);
-        }
     }
 
     function checkTokenExpiration() {
