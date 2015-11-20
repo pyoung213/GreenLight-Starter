@@ -68,7 +68,7 @@ gulp.task('e2e-build', function(done) {
  * Run specs and wait.
  * Watch for file changes and re-run tests on each change
  */
-gulp.task('web:test-auto', function(done) {
+gulp.task('web:test-auto', ['serve-dev'], function(done) {
     startTests(false /*singleRun*/ , done);
 });
 
