@@ -46,7 +46,7 @@ gulp.task('wiredep', function() {
 gulp.task('inject', ['config', 'copy_index'], function(done) {
     log('Wire up css into the html, after files are ready');
 
-    runsequence('wiredep', 'styles', 'templatecache', 'svg_icons', 'inject_css', done);
+    runsequence('wiredep', 'styles', 'templatecache', 'svg_icons', 'inject_css', 'inject_svg_icons', done);
 });
 
 gulp.task('inject-dev', ['config', 'copy_index'], function(done) {

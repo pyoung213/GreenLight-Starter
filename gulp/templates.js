@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var args = require('yargs').argv;
 var log = require('./log.js');
-var eventStream = require('event-stream');
-
 var config = require('./gulp.config.js');
 
 var $ = require('gulp-load-plugins')({
