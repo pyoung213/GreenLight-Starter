@@ -24,7 +24,7 @@ function AssetRoutes(Config) {
             app.use(favicon(path.join(Config.root_path, 'src/web/assets/images/favicons/favicon.ico')));
         } else {
             app.use(express.static(path.join(Config.root_path, 'build/')));
-            app.use(favicon(path.join(Config.root_path, 'build/images/favicons/favicon.ico')));
+            app.use(favicon(path.join(Config.root_path, 'build/assets/images/favicons/favicon.ico')));
         }
     }
 
