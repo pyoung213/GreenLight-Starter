@@ -14,7 +14,7 @@ var $ = require('gulp-load-plugins')({
  * and inject them into the new index.html
  * @return {Stream}
  */
-gulp.task('optimize', ['inject'], function() {
+gulp.task('optimize', ['build-dev', 'templateCache'], function() {
     log('Optimizing the js, css, and html');
 
     var assets = $.useref.assets({

@@ -8,22 +8,6 @@ var $ = require('gulp-load-plugins')({
 });
 
 /**
- * Create templates for svg icons
- * @return {Stream}
- */
-gulp.task('svg_icons', function() {
-    log('Creating svg icon templates');
-
-    return gulp.src(config.svgtemplates)
-        .pipe($.svgmin())
-        .pipe($.angularTemplatecache(
-            config.templateCache.svg.file,
-            config.templateCache.svg.options
-        ))
-        .pipe(gulp.dest(config.temp));
-});
-
-/**
  * Copy languages
  * @return {Stream}
  */

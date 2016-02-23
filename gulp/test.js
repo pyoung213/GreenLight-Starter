@@ -15,7 +15,7 @@ gulp.task('test', ['vet', 'build'], function(done) {
     runsequence('server:test', 'web:test', 'e2e', done);
 });
 
-gulp.task('test-dev', ['vet', 'inject'], function(done) {
+gulp.task('test-dev', ['vet', 'build-dev'], function(done) {
     process.env.NODE_ENV = 'test';
     process.env.SERVE_FROM_SRC = 'true';
 
@@ -41,27 +41,6 @@ gulp.task('server:test', function() {
             read: false
         })
         .pipe($.spawnMocha(options));
-});
-
-gulp.task('e2e', function(done) {
-    var options = {
-        configFile: path.join(config.root, "e2e/protractor.conf.js")
-    };
-
-    if (args.grep) {
-        options.args = ['--grep', args.grep];
-    }
-
-    gulp.src([path.join(config.root, "e2e/**/*.spec.js")])
-        .pipe($.protractor.protractor(options))
-        .on('error', function(err) {
-            throw err;
-        })
-        .on('end', done);
-});
-
-gulp.task('e2e-build', function(done) {
-    runsequence('build', 'e2e', done);
 });
 
 /**

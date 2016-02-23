@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var log = require('./log.js');
+var inject = require('./inject.js');
 var browserSync = require('browser-sync');
 
 var config = require('./gulp.config.js');
@@ -26,4 +27,11 @@ gulp.task('styles', ['clean-styles'], function() {
         }))
         .pipe(gulp.dest(config.temp))
         .pipe(browserSync.stream());
+});
+
+gulp.task('inject_styles', function() {
+    return gulp
+        .src(config.index)
+        .pipe(inject(config.css))
+        .pipe(gulp.dest(config.client));
 });

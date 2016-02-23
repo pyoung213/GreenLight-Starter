@@ -14,16 +14,6 @@ var $ = require('gulp-load-plugins')({
 });
 
 /**
- * serve the dev environment
- * --debug-brk or --debug
- * --nosync
- */
-gulp.task('serve-dev', ['inject-dev'], function() {
-    var isDev = true;
-    serve(isDev);
-});
-
-/**
  * serve the build environment
  * --debug-brk or --debug
  * --nosync
@@ -38,6 +28,16 @@ gulp.task('serve-build', ['build'], function() {
     notify(msg);
 
     var isDev = false;
+    serve(isDev);
+});
+
+/**
+ * serve the dev environment
+ * --debug-brk or --debug
+ * --nosync
+ */
+gulp.task('serve-dev', ['build-dev'], function() {
+    var isDev = true;
     serve(isDev);
 });
 
@@ -136,7 +136,7 @@ function startBrowserSync(isDev, specRunner) {
         injectChanges: true,
         logFileChanges: true,
         logLevel: 'info',
-        logPrefix: 'greenLight',
+        logPrefix: 'sibko',
         notify: true,
         reloadDelay: 0 //1000
     };
